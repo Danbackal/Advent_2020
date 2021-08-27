@@ -49,8 +49,6 @@ class TestFind_2020(unittest.test):
         self.assertEqual(Find_2020.main(self.list_path), -2940000)
 
     def testNoSuccess(self):
-        # -1 for error (empty, incomplete file, strings)
-        # -2 for no answer
         self.resetList()
         number_list = open(self.list_path, "w")
         number_list.write("501")
@@ -60,7 +58,7 @@ class TestFind_2020(unittest.test):
         number_list.write("-3000")
         number_list.write("007")
         number_list.close()
-        self.assertEqual(Find_2020.main(self.list_path), -2)
+        self.assertEqual(Find_2020.main(self.list_path), -1)
 
     def testNonNumberError(self):
         self.resetList()
